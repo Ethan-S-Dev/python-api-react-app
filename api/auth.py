@@ -19,15 +19,23 @@ print("flask")
 app = Flask(__name__)
 
 print("route")
-@app.route("/",defaults={"path":""})
-@app.route("/<path:path>")
-def catch_all(path):
-    data = {"Message": "Hello Frome Python API!","secret":JWT_SECRET_KEY}
+@app.route("/")
+def index():
+    data = {"Message": "Hello Frome Python API!"}
     resp = Response(data,
     status=200,
     mimetype="application/json")
 
     return resp
+
+@app.route("/secret")
+def secret():
+    data = {"secret":JWT_SECRET_KEY}
+    resp = Response(data,
+    status=200,
+    mimetype="application/json")
+    return resp
+
 print("--main--")
 if __name__ == "__main__":
     app.run(debug=True)
