@@ -1,43 +1,14 @@
-print("strat")
-import os
-import json
-import random
-import requests
-print("badimports")
-import jwt
+print("Auth")
 
-from base64 import b64encode
-from dotenv import load_dotenv, find_dotenv
-from flask import Flask,Response,jsonify,render_template,templating
+from flask import Flask ,Response
 
-print("dotenv")
-load_dotenv(find_dotenv())
-
-print("os")
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
-print("flask")
 app = Flask(__name__)
 
-print("route")
-@app.route("/")
+app.add_url_rule("/",endpoint="index")
+
+@app.endpoint("index")
 def index():
-    data = {"Message": "Hello Frome Python API!"}
-    resp = Response(data,
-    status=200,
-    mimetype="application/json")
+    return Response({"Message":"Hey"},status=200,content_type="application/json")
 
-    return resp
-
-@app.route("/secret")
-def secret():
-    data = {"secret":JWT_SECRET_KEY}
-    resp = Response(data,
-    status=200,
-    mimetype="application/json")
-    return resp
-
-print("--main--")
 if __name__ == "__main__":
     app.run(debug=True)
-
-
