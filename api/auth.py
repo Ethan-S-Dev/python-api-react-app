@@ -1,10 +1,8 @@
-print("Auth")
-
 from flask import Flask ,Response
 
 app = Flask(__name__)
 
-app.add_url_rule("/",endpoint="index")
+app.add_url_rule("/api/auth",endpoint="index")
 
 @app.endpoint("index")
 def index():
