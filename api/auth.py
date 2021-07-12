@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/",defaults={"path":""})
 @app.route("/<path:path>")
 def catch_all(path):
-    data = {"Message": "Hello Frome Python API!"}
+    data = {"Message": "Hello Frome Python API!","secret":JWT_SECRET_KEY}
     resp = Response(data,
     status=200,
     mimetype="application/json")
