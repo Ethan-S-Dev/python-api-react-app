@@ -5,6 +5,7 @@ import random
 import requests
 print("badimports")
 import jwt
+
 from base64 import b64encode
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask,Response,jsonify,render_template,templating
