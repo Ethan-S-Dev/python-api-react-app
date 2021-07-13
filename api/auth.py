@@ -3,7 +3,7 @@ import jwt
 import json
 from dotenv import find_dotenv,load_dotenv
 from flask import Flask ,Response,jsonify
-from flask_restful import Api, Resourc,api
+from flask_restful import Api, Resource,api
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,15 +12,15 @@ load_dotenv(find_dotenv())
 
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
-class HelloWorld(Resourc):
+class HelloWorld(Resource):
     def get(self):
         return jsonify({"message":"Hello World!"})
 
-class Multi(Resourc):
+class Multi(Resource):
     def get(self,num):
         return jsonify({'result':num*10})
 
-class Secret(Resourc):
+class Secret(Resource):
     def get(self):
         return jsonify({'secret':JWT_SECRET_KEY})
 
