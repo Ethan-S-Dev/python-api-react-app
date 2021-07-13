@@ -26,9 +26,9 @@ class Secret(Resource):
 
 
 
-api.add_resource(HelloWorld,"/")
-api.add_resource(Multi,"/multi/<int:num>")
-api.add_resource(Secret,"/secret")
+api.add_resource(HelloWorld,"/api/auth")
+api.add_resource(Multi,"/api/auth/multi/<int:num>")
+api.add_resource(Secret,"/api/auth/secret")
 
 if __name__ == "__main__":
     app.run(debug=True)
