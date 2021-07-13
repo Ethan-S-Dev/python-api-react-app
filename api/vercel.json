@@ -1,5 +1,9 @@
 {
     "builds": [
         { "src": "*.py", "use": "@vercel/python" }
+    ],
+    "rewrites": [
+        { "source": "/api/auth/secret", "destination": "/api/auth" },
+        { "source": "/api/auth/multi/:number", "destination": "/api/auth" }
     ]
 }
