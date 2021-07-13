@@ -3,7 +3,7 @@ import jwt
 import json
 from dotenv import find_dotenv,load_dotenv
 from flask import Flask ,Response,jsonify
-from flask_restful import Api, Resource,api
+from flask_restful import Api, Resource
 
 app = Flask(__name__)
 api = Api(app)
